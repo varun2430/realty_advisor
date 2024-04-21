@@ -4,12 +4,12 @@ import { useEffect, useState } from "react";
 
 const calculatePercentageDifference = (a, b) => {
   const difference = b - a;
-  const percentageDifference = (Math.abs(difference) / a) * 100;
+  const percentageDifference = (difference / Math.abs(a)) * 100;
 
   if (difference > 0) {
     return `+${percentageDifference.toFixed(2)}%`;
   } else if (difference < 0) {
-    return `-${percentageDifference.toFixed(2)}%`;
+    return `${percentageDifference.toFixed(2)}%`;
   } else {
     return "0%";
   }
