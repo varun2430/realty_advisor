@@ -1,0 +1,3 @@
+[submodule "ai_module"]
+	path = ai_module
+	url = https://github.com/t-K-o-S/realty-advisor-ai-ml
