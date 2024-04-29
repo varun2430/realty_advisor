@@ -22,16 +22,7 @@ export default function CreateListing() {
     type: "rent",
     bedrooms: 1,
     bathrooms: 1,
-    no_of_floors: 1,
-    basement_area: 0,
     living_area: 0,
-    lot_area: 0,
-    no_of_views: 0,
-    waterfront_present: 0,
-    built_year: 1900,
-    condition_of_house: 2,
-    schools_nearby: 1,
-    distance_from_airport: 100,
     regularPrice: 50,
     discountPrice: 0,
     offer: false,
@@ -42,7 +33,6 @@ export default function CreateListing() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  console.log(formData);
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -82,7 +72,6 @@ export default function CreateListing() {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(`Upload is ${progress}% done`);
         },
         (error) => {
           reject(error);
@@ -283,32 +272,6 @@ export default function CreateListing() {
             <div className="flex items-center gap-2">
               <input
                 type="number"
-                id="no_of_floors"
-                min="1"
-                max="3"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.no_of_floors}
-              />
-              <p>No. Of Floors</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="basement_area"
-                min="0"
-                max="3500"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.basement_area}
-              />
-              <p>Basement Area</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
                 id="living_area"
                 min="400"
                 max="7500"
@@ -318,97 +281,6 @@ export default function CreateListing() {
                 value={formData.living_area}
               />
               <p>Living Area</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="lot_area"
-                min="400"
-                max="9999"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.lot_area}
-              />
-              <p>Lot Area</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="no_of_views"
-                min="0"
-                max="4"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.no_of_views}
-              />
-              <p>No. Of Views</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="waterfront_present"
-                min="0"
-                max="1"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.waterfront_present}
-              />
-              <p>Waterfront Present</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="built_year"
-                min="1900"
-                max="2024"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.built_year}
-              />
-              <p>Built Year</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="condition_of_house"
-                min="1"
-                max="5"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.condition_of_house}
-              />
-              <p>Condition Of House</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="schools_nearby"
-                min="1"
-                max="5"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.schools_nearby}
-              />
-              <p>Schools Nearby</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <input
-                type="number"
-                id="distance_from_airport"
-                min="1"
-                max="500"
-                required
-                className="p-3 border border-gray-300 rounded-lg"
-                onChange={handleChange}
-                value={formData.distance_from_airport}
-              />
-              <p>Distance from Airport</p>
             </div>
             <div className="flex items-center gap-2">
               <input

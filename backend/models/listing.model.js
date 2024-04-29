@@ -30,43 +30,7 @@ const listingSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    no_of_floors: {
-      type: Number,
-      required: true,
-    },
-    basement_area: {
-      type: Number,
-      required: true,
-    },
     living_area: {
-      type: Number,
-      required: true,
-    },
-    lot_area: {
-      type: Number,
-      required: true,
-    },
-    no_of_views: {
-      type: Number,
-      required: true,
-    },
-    waterfront_present: {
-      type: Number,
-      required: true,
-    },
-    built_year: {
-      type: Number,
-      required: true,
-    },
-    condition_of_house: {
-      type: Number,
-      required: true,
-    },
-    schools_nearby: {
-      type: Number,
-      required: true,
-    },
-    distance_from_airport: {
       type: Number,
       required: true,
     },
