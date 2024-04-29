@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { useSelector } from "react-redux";
@@ -9,49 +9,39 @@ import {
   FaBath,
   FaBed,
   FaChair,
-  FaMapMarkedAlt,
   FaMapMarkerAlt,
   FaParking,
+  FaRuler,
   FaShare,
 } from "react-icons/fa";
 import Contact from "../components/Contact";
 
 // https://sabe.io/blog/javascript-format-numbers-commas#:~:text=The%20best%20way%20to%20format,format%20the%20number%20with%20commas.
 
+const calculatePercentageDifference = (a, b) => {
+  const difference = b - a;
+  const percentageDifference = (difference / Math.abs(a)) * 100;
+
+  if (difference > 0) {
+    return `+${percentageDifference.toFixed(2)}%`;
+  } else if (difference < 0) {
+    return `${percentageDifference.toFixed(2)}%`;
+  } else {
+    return "0%";
+  }
+};
+
 export default function Listing() {
   const NODE_API_URL = import.meta.env.VITE_NODE_API_URL;
   SwiperCore.use([Navigation]);
-  const [listing, setListing] = useState(null);
+  const location = useLocation();
+  const [listing, setListing] = useState(location.state?.listing);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [copied, setCopied] = useState(false);
   const [contact, setContact] = useState(false);
   const params = useParams();
   const { currentUser } = useSelector((state) => state.user);
-
-  useEffect(() => {
-    const fetchListing = async () => {
-      try {
-        setLoading(true);
-        const res = await fetch(
-          `${NODE_API_URL}/api/listing/get/${params.listingId}`
-        );
-        const data = await res.json();
-        if (data.success === false) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-        setListing(data);
-        setLoading(false);
-        setError(false);
-      } catch (error) {
-        setError(true);
-        setLoading(false);
-      }
-    };
-    fetchListing();
-  }, [params.listingId]);
 
   return (
     <main>
@@ -93,13 +83,43 @@ export default function Listing() {
           )}
           <div className="flex flex-col max-w-4xl mx-auto p-3 my-7 gap-4">
             <p className="text-2xl text-slate-300 font-semibold">
-              {listing.name} - ₹{" "}
-              {listing.offer
-                ? listing.discountPrice.toLocaleString("en-US")
-                : listing.regularPrice.toLocaleString("en-US")}
-              {listing.type === "rent" && " / month"}
+              {listing.name}
             </p>
-            <p className="flex items-center mt-6 gap-2 text-gray-400  text-sm">
+            <div className="flex items-center justify-between">
+              <div className="flex flex-col">
+                <p className="text-md text-slate-300">Best Value at:</p>
+                <p className=" text-xl text-slate-200 font-semibold">
+                  ₹ &nbsp;
+                  {listing.predictedPrice.toLocaleString("en-IN")}
+                  {listing.type === "rent" && " / month"}
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <p className=" text-lg text-slate-400">
+                  {calculatePercentageDifference(
+                    listing.predictedPrice,
+                    listing.currentPrice
+                  )}
+                </p>
+              </div>
+              <div className="flex flex-col">
+                <p className="text-md text-slate-300">Price:</p>
+                <p
+                  className={` text-xl ${
+                    listing.predictedPrice - listing.currentPrice > 0
+                      ? "text-green-500"
+                      : listing.predictedPrice - listing.currentPrice < 0
+                      ? "text-red-500"
+                      : "text-slate-200"
+                  } font-semibold`}
+                >
+                  ₹ &nbsp;
+                  {listing.currentPrice.toLocaleString("en-IN")}
+                  {listing.type === "rent" && " / month"}
+                </p>
+              </div>
+            </div>
+            <p className="flex items-center gap-2 text-gray-400  text-sm">
               <FaMapMarkerAlt className="text-green-600" />
               {listing.address}
             </p>
@@ -131,6 +151,10 @@ export default function Listing() {
                 {listing.bathrooms > 1
                   ? `${listing.bathrooms} baths `
                   : `${listing.bathrooms} bath `}
+              </li>
+              <li className="flex items-center gap-1 whitespace-nowrap ">
+                <FaRuler className="text-lg" />
+                {`${listing.living_area} sq. ft `}
               </li>
               <li className="flex items-center gap-1 whitespace-nowrap ">
                 <FaParking className="text-lg" />

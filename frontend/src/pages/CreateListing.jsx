@@ -280,7 +280,7 @@ export default function CreateListing() {
                 onChange={handleChange}
                 value={formData.living_area}
               />
-              <p>Living Area</p>
+              <p>Area (sq. ft)</p>
             </div>
             <div className="flex items-center gap-2">
               <input
@@ -326,7 +326,7 @@ export default function CreateListing() {
         <div className="flex flex-col flex-1 gap-4">
           <p className="font-semibold">
             Images:
-            <span className="font-normal text-gray-600 ml-2">
+            <span className="font-normal text-gray-500 ml-2">
               The first image will be the cover (max 6)
             </span>
           </p>

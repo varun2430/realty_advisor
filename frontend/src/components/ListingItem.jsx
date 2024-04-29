@@ -52,7 +52,12 @@ export default function ListingItem({ listing }) {
 
   return (
     <div className="bg-zinc-800 shadow-md hover:shadow-lg transition-shadow overflow-hidden rounded-lg w-full sm:w-[330px]">
-      <Link to={`/listing/${listing._id}`}>
+      <Link
+        to={{
+          pathname: `/listing/${listing._id}`,
+        }}
+        state={{ listing: { ...listing, currentPrice, predictedPrice } }}
+      >
         <img
           src={
             listing.imageUrls[0] ||
@@ -115,6 +120,9 @@ export default function ListingItem({ listing }) {
               {listing.bathrooms > 1
                 ? `${listing.bathrooms} baths `
                 : `${listing.bathrooms} bath `}
+            </div>
+            <div className="font-bold text-xs">
+              {`${listing.living_area} sq. ft`}
             </div>
           </div>
         </div>
