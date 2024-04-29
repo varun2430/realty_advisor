@@ -24,29 +24,17 @@ export default function ListingItem({ listing }) {
   useEffect(() => {
     const fetchPrediction = async () => {
       try {
-        const res = await fetch("http://127.0.0.1:8000/predict_price/", {
+        const res = await fetch("https://3.6.6.15:8000/predict_price/", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            area: listing.living_area,
             bedrooms: listing.bedrooms,
             bathrooms: listing.bathrooms,
-            living_area: listing.living_area,
-            lot_area: listing.lot_area,
-            num_floors: listing.no_of_floors,
-            waterfront_present: listing.waterfront_present,
-            num_views: listing.no_of_views,
-            condition: listing.condition_of_house,
-            grade: 6,
-            area_house: 1000,
-            area_basement: listing.basement_area,
-            built_year: listing.built_year,
-            // renovation_year: listing.built_year,
-            living_area_renov: 0,
-            lot_area_renov: 0,
-            num_schools_nearby: listing.schools_nearby,
-            distance_from_airport: listing.distance_from_airport,
+            furnishing: listing.furnished,
+            parking: listing.parking,
           }),
         });
         const data = await res.json();
