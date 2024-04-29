@@ -6,8 +6,8 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        // target: 'http://localhost:3000',  // dev
-        target: 'http://3.6.6.15:3000',  // prod
+        // target: 'https://localhost:3000',  // dev
+        target: 'https://3.6.6.15:3000',  // prod
         secure: false,
       },
     },
