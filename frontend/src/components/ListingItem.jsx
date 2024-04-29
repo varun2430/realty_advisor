@@ -16,6 +16,7 @@ const calculatePercentageDifference = (a, b) => {
 };
 
 export default function ListingItem({ listing }) {
+  const PYTHON_API_URL = import.meta.env.VITE_PYTHON_API_URL;
   const currentPrice = listing.offer
     ? listing.discountPrice
     : listing.regularPrice;
@@ -24,7 +25,7 @@ export default function ListingItem({ listing }) {
   useEffect(() => {
     const fetchPrediction = async () => {
       try {
-        const res = await fetch("https://3.6.6.15:8000/predict_price/", {
+        const res = await fetch(`${PYTHON_API_URL}/predict_price/`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

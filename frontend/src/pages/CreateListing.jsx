@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateListing() {
+  const NODE_API_URL = import.meta.env.VITE_NODE_API_URL;
   const { currentUser } = useSelector((state) => state.user);
   const navigate = useNavigate();
   const [files, setFiles] = useState([]);
@@ -142,9 +143,10 @@ export default function CreateListing() {
         return setError("Discount price must be lower than regular price");
       setLoading(true);
       setError(false);
-      const res = await fetch("/api/listing/create", {
+      const res = await fetch(`${NODE_API_URL}/api/listing/create`, {
         method: "POST",
         headers: {
+          Authorization: `${localStorage.getItem("jwtToken")}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
