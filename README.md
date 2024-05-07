@@ -1,15 +1,15 @@
 <br>
 <div align="center">
-    <a href="https://github.com/varun2430/realty_advisor/commits/main/" target="_blank"><img alt="GitHub commits" src="https://img.shields.io/github/commit-activity/t/varun2430/realty_advisor/main?style=for-the-badge"></a>
-    <a href="https://github.com/varun2430/realty_advisor/issues" target="_blank"><img alt="GitHub issues" src="https://img.shields.io/github/issues/varun2430/realty_advisor?color=brightgreen&label=issues&style=for-the-badge"></a>
-    <a href="https://github.com/varun2430/realty_advisor/blob/main/LICENSE" target="_blank"><img alt="GitHub license" src="https://img.shields.io/github/license/varun2430/realty_advisor?style=for-the-badge"></a>
-    <a href="https://www.linkedin.com/in/varun-kadkade-7359aa214/" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555"></a>
+    <a href="https://github.com/varun2430/realty_advisor/commits/main/"><img alt="GitHub commits" src="https://img.shields.io/github/commit-activity/t/varun2430/realty_advisor/main?style=for-the-badge"></a>
+    <a href="https://github.com/varun2430/realty_advisor/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/varun2430/realty_advisor?color=brightgreen&label=issues&style=for-the-badge"></a>
+    <a href="https://github.com/varun2430/realty_advisor/blob/main/LICENSE"><img alt="GitHub license" src="https://img.shields.io/github/license/varun2430/realty_advisor?style=for-the-badge"></a>
+    <a href="https://www.linkedin.com/in/varun-kadkade-7359aa214/"><img alt="LinkedIn" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555"></a>
 </div>
 <br>
 
 <br />
 <div align="center">
-  <a href="https://github.com/varun2430/realty_advisor" target="_blank">
+  <a href="https://github.com/varun2430/realty_advisor">
     <img src="readme_assets/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -19,11 +19,11 @@
     An AI enhanced real estate platform
     <br />
     <br />
-    <a href="https://drive.google.com/file/d/1LErZFkU1LhsLHqkDMg0mZ27-DTZJ2MoS/view?usp=sharing" target="_blank">View Demo</a>
+    <a href="https://drive.google.com/file/d/1LErZFkU1LhsLHqkDMg0mZ27-DTZJ2MoS/view?usp=sharing">View Demo</a>
     ·
-    <a href="https://github.com/varun2430/realty_advisor/issues/new?labels=bug" target="_blank">Report Bug</a>
+    <a href="https://github.com/varun2430/realty_advisor/issues/new?labels=bug">Report Bug</a>
     ·
-    <a href="https://github.com/varun2430/realty_advisor/issues/new?labels=enhancement" target="_blank">Request Feature</a>
+    <a href="https://github.com/varun2430/realty_advisor/issues/new?labels=enhancement">Request Feature</a>
   </p>
 </div>
 
